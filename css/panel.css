@@ -1,0 +1,65 @@
+.floatingPanel
+{
+
+    position: absolute;
+    width: 50%;
+    height:50%;
+    top: 50px;
+  left: 50px;
+    
+    border-top-right-radius:15px;
+    border-bottom-left-radius: 15px;
+
+}
+
+.panelBody
+{
+    position: relative;
+    width: 100%;
+    height: calc(100% - 25px);
+    background-color: rgba(247, 191, 191, 0.8);
+    border-bottom-left-radius: 15px;
+}
+.panelHeader
+{
+    position: relative;
+    height: 30px;
+    width: 100%;
+    background-color: rgba(166, 243, 253, 0.89);   
+    border-top-right-radius:15px;
+}
+.panelTitle
+{
+
+    overflow:hidden; 
+    margin: 5px;
+    padding: 5px;
+    white-space: nowrap; /* Don't forget this one */
+    text-overflow:ellipsis;
+    vertical-align: middle;
+}
+.panelResizeHandle
+{
+    width: 40px;
+    height: 40px;
+    border-left: 2px dashed black;
+    border-top: 2px dashed black;
+    border-top-left-radius: 15px;
+    background-color:rgba(166, 243, 253, 0.89);   
+    position:absolute;
+    right: 0;
+    bottom: 0;
+    touch-action: none;
+}
+.panelContent
+{
+    width: 100%;
+    height: calc(100% - 10px);
+    position: relative;
+    padding-top:10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right:20px;
+    overflow-y:auto;
+    touch-action: pan-y;
+}
