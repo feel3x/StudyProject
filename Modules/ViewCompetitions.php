@@ -3,11 +3,17 @@
   <div class="row">
           <?php
 
-$userId = $_SESSION['userId'];
-$userIdInCommas = ",".$userId.",";
-$searchUserId ="%$userIdInCommas%";
-$stmt = $db->prepare("SELECT * FROM competitions WHERE associatedMembers LIKE ? ORDER BY `date` DESC");
-      $stmt->execute(array($searchUserId));
+
+if(in_array(11, $_SESSION['userPermissions']))
+{
+      $stmt = $db->prepare("SELECT * FROM competitions WHERE environmentId LIKE ? ORDER BY `date` DESC");
+      $stmt->execute(array($_SESSION['environmentId']));     
+}
+else
+{
+  $stmt = $db->prepare("SELECT * FROM competitions WHERE environmentId LIKE ? AND hide LIKE ? ORDER BY `date` DESC");
+      $stmt->execute(array($_SESSION['environmentId'], 0));
+}
       while($compRow = $stmt->fetch(PDO::FETCH_ASSOC))
       {
 ?>

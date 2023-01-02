@@ -1,6 +1,6 @@
-<?php if(!isset($rootPage))
+<?php if(!isset($rootPage) || $rootPage == "")
 {
-    echo "No Permissions";
+    echo "This page can only be called from within the App";
 exit;
 }
 ?>

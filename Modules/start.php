@@ -1,7 +1,8 @@
 <?php
-include("../connect.php");
+ini_set('display_errors', 1);
+include_once("../connect.php"); //connecting to database and handling sessions
 $rootPage = true; //Modules can only be accesed when included into this page
-if(isset($_GET['id']))
+if(isset($_GET['id'])) //Get the id of the current page
 {
   $siteId = $_GET['id'];
 }
@@ -9,7 +10,7 @@ else
 {
   $siteId = 1;
 }
-$stmt = $db->prepare("SELECT * FROM sites WHERE id LIKE ?");
+$stmt = $db->prepare("SELECT * FROM sites WHERE id LIKE ?"); //get data for the current page
 $stmt->execute(array($siteId));
 $siteRow = $stmt->fetch();
 $isPermitted = false;
@@ -22,7 +23,7 @@ $sitePermissions = str_replace(',', '', explode(',,', $siteRow['permissions']));
         $isPermitted = true;
       }
     }
-    if(!$isPermitted)
+    if(!$isPermitted) //check if necessary permissions are obtained
     {
       echo "You do not have permissions for this content. Please ask an Administrator about this issue.";
     }
@@ -33,7 +34,8 @@ $sitePermissions = str_replace(',', '', explode(',,', $siteRow['permissions']));
       ?>
       <title><?php echo $siteRow['title']; ?></title>
       <div class="container">
-  <div class="row">
+      
+  <div class="row my-4">
      
 
     <?php
@@ -103,7 +105,7 @@ for($i = 0; $i<count($siteModules); $i++)
 {
   if($siteModules[$i] != '')
   {
-  include($siteModules[$i].".php");
+  include_once($siteModules[$i].".php");
   }
 }
 ?>

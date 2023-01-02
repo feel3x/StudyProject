@@ -1,7 +1,8 @@
 <?php
-if(!$addMemberRootPage)
+ini_set('display_errors', 1);
+if(!isset($addMemberRootPage) || !$addMemberRootPage)
 {
-include("../../connect.php");
+include_once("../../connect.php");
 if(isset($_GET['memberId']))
 {
     $memberId = $_GET['memberId'];
@@ -18,7 +19,13 @@ if(isset($_POST['selectedComps']))
 {
     $selectedComps = $_POST['selectedComps'];
 }
+else
+{
+  $selectedComps = [];
 }
+}
+if(count($selectedComps) >0)
+{
       $in  = str_repeat('?,', count($selectedComps) - 1) . '?';
 $stmt = $db->prepare("SELECT * FROM disciplines WHERE compId in($in)");
       $stmt->execute($selectedComps);
@@ -26,7 +33,7 @@ $stmt = $db->prepare("SELECT * FROM disciplines WHERE compId in($in)");
     {
       $disIsSelected = "";
       $selectedDis = array();
-      if(isset($memberId)) //If we're updating an existing Member
+      if(isset($memberId) && $memberId != "") //If we're updating an existing Member
       { 
         if(strpos($disRow['associatedMembers'], ','.$memberRow['id'].',') != false) //checking if member is associated with next competition in loop
       {
@@ -34,7 +41,7 @@ $stmt = $db->prepare("SELECT * FROM disciplines WHERE compId in($in)");
          $selectedDis[] = $disRow['id'];
       }
       }
-      if(isset($disId)) //If we're adding a member to a specific discipline
+      if(isset($disId) && $disId != "") //If we're adding a member to a specific discipline
       { 
         if($disRow['id'] == $disId) //checking given discipline is next discipline in loop
       {
@@ -47,4 +54,5 @@ $stmt = $db->prepare("SELECT * FROM disciplines WHERE compId in($in)");
        <option value="<?php echo $disRow['id']; ?>" <?php echo $disIsSelected; ?>><?php echo $disRow['title']; ?></option>
       <?php
     }
+  }
     ?>

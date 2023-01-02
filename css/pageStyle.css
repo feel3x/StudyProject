@@ -1,0 +1,112 @@
+.highlightedElement {
+    animation: highlight 1000ms ease-out;
+}
+
+@keyframes highlight {
+    0% {
+        background-color: rgba(255, 0, 0, 0.2);
+        color: white;
+        font-size: 1rem;
+    }
+
+    30% {
+        background-color: rgba(255, 0, 0, 0);
+        color: black;
+        font-size: 1.2rem;
+    }
+
+    60% {
+        background-color: rgba(255, 0, 0, 0.2);
+        color: white;
+        font-size: 1rem;
+    }
+
+    100% {
+        background-color: rgba(255, 0, 0, 0);
+        color: black(255, 0, 0, 0);
+        font-size: auto;
+    }
+}
+
+
+.disappearElements {
+    animation-name: disappear;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+}
+@keyframes disappear {
+    0% {
+        transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    }
+
+    100% {
+        transform: rotateX(90deg) rotateY(00deg) rotateZ(0deg);
+    }
+}
+
+body {
+    touch-action: none;
+    background-image: url("./img/background.jpg");
+    background-size: cover;
+    background-attachment: scroll;
+
+}
+
+html,
+body,
+form,
+fieldset,
+table,
+tr,
+td,
+img,
+input,
+button,
+select,
+textarea,
+optgroup,
+option {
+    font-family: inherit;
+    font-size: inherit;
+    font-style: inherit;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+#root {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.4);
+    width: 100vw;
+    height: 100%;
+    min-height: 100%;
+    left: 0;
+    top: 0;
+}
+
+#rootContent {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+}
+
+#fullscreen_button {
+    border: 3px dashed black;
+    background-color: rgba(0, 189, 252, 0.1);
+}
+
+#back_button {
+    display: none;
+    position: absolute;
+    border-bottom-right-radius: 15px;
+    left: 0px;
+    top: 0px;
+}
+
+.messageDiv {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}

@@ -6,11 +6,17 @@ if(isset( $_GET['compId']))
 {
     $compId = $_GET['compId'];
 } 
-$userId = $_SESSION['userId'];
-$userIdInCommas = ",".$userId.",";
-$searchUserId ="%$userIdInCommas%";
-$stmt = $db->prepare("SELECT * FROM competitions WHERE id LIKE ? AND associatedMembers LIKE ?");
-      $stmt->execute(array($compId, $searchUserId));
+
+if(in_array(11, $_SESSION['userPermissions']))
+{
+  $stmt = $db->prepare("SELECT * FROM competitions WHERE id LIKE ? ");
+  $stmt->execute(array($compId)); 
+}
+else
+{
+$stmt = $db->prepare("SELECT * FROM competitions WHERE id LIKE ?");
+      $stmt->execute(array($compId));
+}
       $compRow = $stmt->fetch()
     
           ?>

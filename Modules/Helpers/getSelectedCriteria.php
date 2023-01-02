@@ -1,7 +1,9 @@
 <?php
-if(!$addMemberRootPage)
+ini_set('display_errors', 1);
+$selectedDis = array();
+if(!isset($addMemberRootPage) || !$addMemberRootPage)
 {
-include("../../connect.php");
+include_once("../../connect.php");
 if(isset($_GET['memberId']))
 {
     $memberId = $_GET['memberId'];
@@ -26,12 +28,13 @@ $stmt = $db->prepare("SELECT * FROM disciplines WHERE id in($in)");
       $stmt->execute($selectedDis);
     while($selDisRow = $stmt->fetch(PDO::FETCH_ASSOC)) //Get all Disciplines selected
     {    
-        if(isset($memberId))
+      $selectedCriteria = array();
+
+        if(isset($memberId) && $memberId != "")
         {
-        $selectedCriteria = array();
-      $stmt = $db->prepare("SELECT * FROM judging WHERE disciplineId LIKE ? AND userId LIKE ?");
-      $stmt->execute(array($selDisRow['id'], $memberId));
-      while($judgeRow = $stmt->fetch(PDO::FETCH_ASSOC)) //Get all judging criteria associated with the judge and discipline
+      $stmt2 = $db->prepare("SELECT * FROM judging WHERE disciplineId LIKE ? AND userId LIKE ?");
+      $stmt2->execute(array($selDisRow['id'], $memberId));
+      while($judgeRow = $stmt2->fetch(PDO::FETCH_ASSOC)) //Get all judging criteria associated with the judge and discipline
       {
         $selectedCriteria[] = $judgeRow['criteria'];
       }
@@ -45,7 +48,7 @@ $stmt = $db->prepare("SELECT * FROM disciplines WHERE id in($in)");
          $criteriaIsSelected = "SELECTED";
       }
       ?>
-          <option value="<?php echo $selDisRow['id']; ?>-<?php echo $disciplineCriteria[$i]; ?>" <?php echo $criteriaIsSelected; ?>><?php echo $selDisRow['title']; ?> - <?php echo $disciplineCriteria[$i]; ?></option>
+          <option value="<?php echo $selDisRow['id']; ?>~<?php echo $disciplineCriteria[$i]; ?>" <?php echo $criteriaIsSelected; ?>><?php echo $selDisRow['title']; ?> - <?php echo $disciplineCriteria[$i]; ?></option>
       <?php
     }  
   }       

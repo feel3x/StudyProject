@@ -1,0 +1,21 @@
+<div id="movingPanel{PANELNUMBER}" onmouseover="panelInactive('movingPanel{PANELNUMBER}', true)" onmouseout="panelInactive('movingPanel{PANELNUMBER}')" class="floatingPanel">
+    <div class="panelHeader" onMouseDown="startMovingPanel('movingPanel{PANELNUMBER}')" onTouchStart="startMovingPanel('movingPanel{PANELNUMBER}')">
+    <div class="panelButtons"><div style="float:left; margin: 5px; display: none" class="backButton"><a href="#" class="panelAction" style="color: rgb(34, 34, 34)" onClick="goBack('movingPanel{PANELNUMBER}')"><i class="fas fa-long-arrow-alt-left"></i></a></div>       
+            <div style="float:left; margin: 5px;"><a href="#" class="panelAction" style="color: rgb(34, 34, 34)" onClick="closePanel('movingPanel{PANELNUMBER}')"><i class="fas fa-times-circle"></i></a></div>
+           <div style="float:left; margin: 5px;"><a href="#" class="panelAction" style="color: rgb(34, 34, 34)"  onClick="minimizePanel('movingPanel{PANELNUMBER}')"><i class="fas fa-window-minimize"></i></a></div>
+    <div style="float:left; margin: 5px;"><a href="#" class="panelAction" style="color: rgb(34, 34, 34)"  onClick="makeFullscreen('movingPanel{PANELNUMBER}')"><i class="fas fa-expand-arrows-alt"></i></a></div>
+</div>
+
+
+
+    <div class="panelTitle">New Window</div>
+    </div>
+    <div class="panelBody">
+        <div id="panelContent{PANELNUMBER}" class="panelContent">
+        </div>
+    <div
+    class="panelResizeHandle" onMouseDown="startResizingPanel('movingPanel{PANELNUMBER}')" onTouchStart="startResizingPanel('movingPanel{PANELNUMBER}')">
+    </div>
+    </div>
+
+    </div>
