@@ -1,4 +1,12 @@
-<?php include("../includeSafety.php"); ?>
+<?php 
+/**
+* This Module displays buttons for each available competition
+* Each button represents a competition and allows users to view information about the competition. The list of competitions is retrieved from the database.
+*/
+
+include("../includeSafety.php");
+
+?>
 <div class="container">
   <div class="row">
           <?php

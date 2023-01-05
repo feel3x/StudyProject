@@ -1,5 +1,11 @@
-
 <?php
+
+/**
+* This Module gives the user the ability to make personal notes.
+* The notes will be saved in the database and are only accessibly by this user. 
+* The user can make seperate notes for each module they find themselves in. Such as different competitions or disciplines will have separate notes.
+*/
+
 include("../includeSafety.php");
 if(!checkPermission("Logged In") || !isset($_SESSION['userId']) || $_SESSION['userId'] == '')
 {

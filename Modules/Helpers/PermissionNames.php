@@ -1,4 +1,8 @@
 <?php
+/**
+* This module helper script retrieves all the possible permissions and their titles from the database in order to check them by title 
+*/
+
 $permissionNames =  [];
 $stmt = $db->prepare("SELECT * FROM `permissions` ORDER BY title");
 $stmt->execute();
@@ -19,5 +23,3 @@ while($permRow = $stmt->fetch(PDO::FETCH_ASSOC)) //Get all PermissionPresets
     }
   $permissionPresets[$permRow['title']] = $permissionPresetIds;
 }
-
-?>

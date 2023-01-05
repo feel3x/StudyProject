@@ -1,6 +1,6 @@
 <?php
 session_start();
-$dsn = "mysql:host=localhost;dbname=trampcomp;charset=utf8mb4";
+$dsn = "mysql:host=localhost;dbname=studyproject;charset=utf8mb4";
 $options = [
   PDO::ATTR_EMULATE_PREPARES   => false, // turn off emulation mode for "real" prepared statements
   PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION, //turn on errors in the form of exceptions

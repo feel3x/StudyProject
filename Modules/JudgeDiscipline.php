@@ -1,5 +1,11 @@
 <?php
-
+/**
+* This Module gives the user with the necessary permissions the ability to judge the currently selected competitor of a certain discipline within a certain competition.
+* The user has to wait until the discipline is started and unpaused. 
+* It will always keep the currently selected competitor up for judging.
+* The score can be revoked as long as the competitor is still selected for judging. 
+* The data of the discipline determines the posssible values and steps for the score. 
+*/
 
 $panelId = isset($_GET['panelId'])?$_GET['panelId']:null;
   ?>

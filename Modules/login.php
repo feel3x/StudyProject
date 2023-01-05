@@ -1,4 +1,11 @@
-<?php include("../includeSafety.php"); ?>
+<?php 
+
+/**
+* This Module gives users the ability to log in with their username and password in order to retrieve their permissions. 
+* Users who aren't logged in only have "Spectator" permissions.
+*/
+
+include("../includeSafety.php"); ?>
 <script type = "text/javascript">
 function LOGINreload()
 {

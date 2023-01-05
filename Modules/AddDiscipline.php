@@ -1,4 +1,9 @@
-<?php include("../includeSafety.php"); ?>
+<?php 
+/**
+* This Module gives the user with the necessary permissions the ability to change information of disciplines, add and delete disciplines within certain competitions
+*/
+
+include("../includeSafety.php"); ?>
 <title class="title">New Discipline</title>
 <form>
   <div class="form-row">

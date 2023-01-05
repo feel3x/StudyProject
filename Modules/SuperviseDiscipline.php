@@ -1,4 +1,15 @@
-<?php include("../includeSafety.php"); 
+<?php 
+/**
+* This Module gives the user with the necessary permissions the ability to supervise a discipline.
+* The user can start/stop the discipline.
+* Only if the discipline is started are the judges able to judge athletes.
+* The user can swtich between competitors who are currently being judged.
+* Only the selected competitor can be judged by the judges.
+* The order of competitors is tied to the start list for easier access.
+* The user recieves information about the scores and judges who are still missing their scores.
+*/
+
+include("../includeSafety.php"); 
 if(isset($_GET['disId']))
 {
     $disId = $_GET['disId'];

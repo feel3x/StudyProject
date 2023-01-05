@@ -1,6 +1,14 @@
 
-<?php include("../includeSafety.php"); ?>
 <?php 
+/**
+ * This module displays information about the competition a list of buttons for each discipline contained by the competition.
+ * Each button represents a discipline and allows users to view information about the discipline. The list of disciplines is retrieved from the database.
+ * The competition that the disciplines belong to is specified by the `compId` URL parameter.
+ */
+
+include("../includeSafety.php"); 
+
+
 
 if(isset( $_GET['compId']))
 {

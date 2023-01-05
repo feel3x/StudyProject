@@ -1,6 +1,10 @@
-<?php include("../includeSafety.php"); ?>
-
 <?php 
+/**
+* This Module gives the user with the necessary permissions the to change information of members, add and delete members of the competitions, disciplines and this application.
+*/
+
+include("../includeSafety.php");
+
 if(isset($_GET['memberId']))
 {
     $memberId = $_GET['memberId'];

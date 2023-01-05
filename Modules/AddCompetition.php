@@ -1,4 +1,9 @@
-<?php include("../includeSafety.php"); ?>
+<?php 
+/**
+* This Module gives the user with the necessary permissions the ability to change information of competitions, add and delete competitions
+*/
+
+include("../includeSafety.php"); ?>
 
 <title class="title">New Competition</title>
 <form>
